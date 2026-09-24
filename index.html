@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#161c2b" />
+    <meta name="description" content="Meta Quest 브라우저에서 하는 VR 일본어 학습: 히라가나부터 JLPT N1까지 매일 떠먹여 주는 커리큘럼" />
+    <title>にほんご VR — 기초부터 N1까지</title>
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <script type="module" crossorigin src="./assets/index-BDMGM3xx.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-DserJtuD.css">
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <div id="title-screen">
+      <div class="card">
+        <div class="kicker">WebXR · Meta Quest</div>
+        <h1>にほんご <span>VR</span></h1>
+        <p class="sub">히라가나부터 JLPT N1까지, 매일 할 일을 정해 주는 일본어 정원</p>
+
+        <div id="loading">
+          <div class="bar"><div class="fill" id="load-fill"></div></div>
+          <div class="load-msg" id="load-msg">글꼴과 학습 데이터를 불러오는 중…</div>
+        </div>
+
+        <div id="menu" class="hidden">
+          <button id="btn-vr" class="primary" disabled>
+            <span class="big">VR로 시작</span>
+            <span class="small" id="vr-note">Meta Quest 브라우저에서 열어 주세요</span>
+          </button>
+          <button id="btn-flat">
+            <span class="big">브라우저로 시작</span>
+            <span class="small">마우스 · 터치 · 키보드</span>
+          </button>
+        </div>
+
+        <ul class="features">
+          <li><b>가나 · 한자 2,136자 · 단어 8,000개 · 문법</b> N5~N1 전 범위</li>
+          <li><b>매일 자동 계획</b> 복습 → 새 항목 → 확인 문제 → 독해·청해</li>
+          <li><b>간격 반복(SRS)</b> 잊어버리기 직전에 다시 물어봄</li>
+          <li><b>JLPT 형식 모의고사</b> 합격하면 다음 단계, 정원의 계절이 바뀝니다</li>
+        </ul>
+        <div class="foot">진도는 이 기기 브라우저에 저장됩니다 · <a href="https://joyong133.github.io/Joyong133/">LINK START</a></div>
+      </div>
+    </div>
+
+  </body>
+</html>
