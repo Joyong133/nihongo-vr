@@ -20,7 +20,7 @@ async function loadFonts() {
     new FontFace('NJP', `url(${BASE}fonts/njp.woff2)`, { weight: '100 900' }),
     new FontFace('NKR', `url(${BASE}fonts/nkr.woff2)`, { weight: '100 900' }),
   ];
-  await Promise.all(
+  const loads = Promise.all(
     faces.map(async (f) => {
       try {
         await f.load();
@@ -30,6 +30,8 @@ async function loadFonts() {
       }
     })
   );
+  // a font that never answers must not hold the page: fall back to system fonts after 8 s
+  await Promise.race([loads, new Promise((r) => setTimeout(r, 8000))]);
 }
 
 async function boot() {
