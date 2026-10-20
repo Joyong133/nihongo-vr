@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#161c2b" />
+    <meta name="description" content="Meta Quest 브라우저에서 걸어 다니는 VR 벚꽃 마을: 마치야 거리, 붉은 다리, 신사, 5층탑" />
+    <title>桜の村 — VR 벚꽃 마을</title>
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="./src/style.css" />
+  </head>
+  <body>
+    <div id="app"></div>
+
+    <div id="title-screen">
+      <div class="card">
+        <div class="kicker">WebXR · Meta Quest</div>
+        <h1>桜の村 <span>VR</span></h1>
+        <p class="sub">마치야 거리를 지나 붉은 다리를 건너면 신사와 5층탑이 있는 벚꽃 마을</p>
+
+        <div id="loading">
+          <div class="bar"><div class="fill" id="load-fill"></div></div>
+          <div class="load-msg" id="load-msg">마을을 불러오는 중…</div>
+        </div>
+
+        <div id="menu" class="hidden">
+          <button id="btn-vr" class="primary" disabled>
+            <span class="big">VR로 들어가기</span>
+            <span class="small" id="vr-note">Meta Quest 브라우저에서 열어 주세요</span>
+          </button>
+          <button id="btn-flat">
+            <span class="big">브라우저로 둘러보기</span>
+            <span class="small">클릭 후 마우스로 보기 · WASD 걷기 · Shift 달리기 · R 입구로</span>
+          </button>
+        </div>
+
+        <ul class="features">
+          <li><b>왼쪽 스틱</b> 걷기 · <b>그립</b>을 쥐면 달리기</li>
+          <li><b>오른쪽 스틱</b> 좌우로 30° 회전 · <b>A 버튼</b> 입구로 돌아가기</li>
+          <li>실제 크기 마을이라 멀미가 나면 잠깐 멈추고 쉬어 주세요</li>
+        </ul>
+        <div class="foot"><a href="./index.html">← 일본어 학습으로 돌아가기</a></div>
+      </div>
+    </div>
+
+    <script type="module" src="./src/village/main.js"></script>
+  </body>
+</html>
