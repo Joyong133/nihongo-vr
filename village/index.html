@@ -6,8 +6,17 @@
     <meta name="theme-color" content="#161c2b" />
     <meta name="description" content="Meta Quest 브라우저에서 걸어 다니는 VR 벚꽃 마을: 마치야 거리, 붉은 다리, 신사, 5층탑" />
     <title>桜の村 — VR 벚꽃 마을</title>
-    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
-    <link rel="stylesheet" href="./src/style.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://cdn.jsdelivr.net/npm/three@0.186.0/build/three.module.js",
+          "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.186.0/examples/jsm/",
+          "three-mesh-bvh": "https://cdn.jsdelivr.net/npm/three-mesh-bvh@0.9.16/src/index.js",
+          "iwer": "https://cdn.jsdelivr.net/npm/iwer@2.5.0/build/iwer.module.js"
+        }
+      }
+    </script>
   </head>
   <body>
     <div id="app"></div>
@@ -39,10 +48,9 @@
           <li><b>오른쪽 스틱</b> 좌우로 30° 회전 · <b>A 버튼</b> 입구로 돌아가기</li>
           <li>실제 크기 마을이라 멀미가 나면 잠깐 멈추고 쉬어 주세요</li>
         </ul>
-        <div class="foot"><a href="./index.html">← 일본어 학습으로 돌아가기</a></div>
       </div>
     </div>
 
-    <script type="module" src="./src/village/main.js"></script>
+    <script type="module" src="./main.js"></script>
   </body>
 </html>

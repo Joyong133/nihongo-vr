@@ -24,6 +24,8 @@ jobs:
           cache: npm
       - run: npm ci
       - run: npm run build
+      # the VR village is a separate static site; publish it as-is under /village/
+      - run: cp -r village dist/village
       - name: Publish dist to gh-pages
         run: |
           cd dist

@@ -10,8 +10,7 @@
     "preview": "vite preview --host"
   },
   "dependencies": {
-    "three": "^0.186.0",
-    "three-mesh-bvh": "^0.9.16"
+    "three": "^0.186.0"
   },
   "devDependencies": {
     "iwer": "^2.5.0",
