@@ -37,7 +37,7 @@ class Village {
     renderer.outputColorSpace = THREE.SRGBColorSpace;
     renderer.toneMapping = THREE.NeutralToneMapping;
     renderer.shadowMap.enabled = !new URLSearchParams(location.search).has('noshadow');
-    renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+    renderer.shadowMap.type = THREE.PCFShadowMap;
     renderer.xr.enabled = true;
     container.appendChild(renderer.domElement);
     this.renderer = renderer;
@@ -467,7 +467,7 @@ async function loadFonts() {
     new FontFace('NJP', `url(${BASE}fonts/njp.woff2)`, { weight: '100 900' }),
     new FontFace('NKR', `url(${BASE}fonts/nkr.woff2)`, { weight: '100 900' }),
   ];
-  await Promise.all(
+  const loads = Promise.all(
     faces.map(async (f) => {
       try {
         await f.load();
@@ -477,6 +477,8 @@ async function loadFonts() {
       }
     })
   );
+  // a font that never answers must not hold the page: fall back to system fonts after 8 s
+  await Promise.race([loads, new Promise((r) => setTimeout(r, 8000))]);
 }
 
 async function boot() {
@@ -488,12 +490,19 @@ async function boot() {
   }
   const fill = $('load-fill');
   const msg = $('load-msg');
+  let step = '글꼴을 불러오는 중…';
+  msg.textContent = step;
+  const slow = setTimeout(() => (msg.textContent = `${step} (오래 걸리면 새로고침해 주세요)`), 25000);
   await loadFonts();
+  step = '마을을 불러오는 중…';
+  msg.textContent = step;
   const village = new Village($('app'));
   window.__village = village;
   await village.load((p) => {
     fill.style.width = `${Math.round(p * 100)}%`;
+    msg.textContent = `마을을 불러오는 중… ${Math.round(p * 100)}%`;
   });
+  clearTimeout(slow);
   fill.style.width = '100%';
   $('loading').classList.add('hidden');
   $('menu').classList.remove('hidden');
